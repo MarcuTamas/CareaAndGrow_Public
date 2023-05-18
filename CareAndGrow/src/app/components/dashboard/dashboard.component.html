@@ -1,0 +1,67 @@
+<h3 class="text-center mt-2 border rounded-3 mx-auto">
+  <i>Dashboard</i>
+</h3>
+
+<main class="accordion container-fluid" id="accordionExample">
+  <div class="accordion-item">
+
+    <h2 class="accordion-header">
+      <button class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+              ngbTooltip="The unsold ones are filtered">
+        Transactions filtered by purchased products:
+      </button>
+    </h2>
+
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div *ngFor="let transaction of filteredTransactions" class="input-group mb-2">
+          <a routerLink="/transactions/detail/{{transaction.id}}">
+            <button class="p-2 border rounded-start-2">Transaction id: {{transaction.id}}</button>
+            <button class="p-2 border rounded-end-2">Transacted plant id: {{transaction.plantID}}</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+        Transactions sorted by total achieved price:
+      </button>
+    </h2>
+
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div *ngFor="let transaction of sortedTransactions" class="input-group mb-2">
+
+          <a routerLink="/transactions/detail/{{transaction.id}}"
+             placement="bottom-end"
+             [ngbTooltip]="totalPriceTemplate">
+
+                <button class="p-2 border rounded-start-2">
+                  Transaction id: {{transaction.id}}
+                </button>
+
+                <button class="p-2 border rounded-end-2">
+                  Transacted plant id: {{transaction.plantID}}
+                </button>
+
+              <ng-template #totalPriceTemplate>
+                Total price achieved: {{getTransactionTotalPrice(transaction)}}
+              </ng-template>
+
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

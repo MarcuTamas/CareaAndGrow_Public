@@ -1,0 +1,46 @@
+<div *ngIf="!isPrivacyAccepted() && !isPrivacyPolicy" class="mx-auto mt-3 col-sm" style="max-height: 400px; overflow-y: auto;">
+  <h3 class="border rounded-3 mx-auto">
+    <i class="mx-3">Privacy Notice</i>
+  </h3>
+  <div class="mt-3">
+    <p class="implement" style="font-size: medium">This website implementation uses <em>local storage </em>
+      <strong><u>to store sample and user-introduced data</u></strong>, such as mock objects.
+    </p>
+    <ul style="text-align: justify">
+      <li><span class="text-primary-emphasis">Please note</span> that <em>the data stored in local storage
+        <u class="text-primary-emphasis">is limited to your device</u> <strong> and is not accessible</strong>
+        to us or any third parties</em>.
+      </li>
+      <li>
+        This allows us to provide a seamless user experience by preserving your customized settings, like the privacy
+        consent and other necessary data locally.
+      </li>
+      <li>If you wish to <em class="text-success"><u>clear the stored data</u></em> or
+        <u class="text-primary-emphasis"><em>retract the consent</em></u> after using our website, you can do so by
+        following the instructions provided in our
+        <a routerLink="/privacy-policy" class="text-primary-emphasis" style="text-decoration: none">
+          <i>Privacy Policy section <u>5.3 Clear the local storage and/or retract the consent</u></i>
+        </a>.
+        <ul class="text-primary-emphasis mt-1">
+          <li style="font-style: italic">
+            We encourage you <u>to delete the local storage data</u> after using our website app to avoid unnecessary consumption
+            of your device's memory.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <a routerLink="/privacy-policy">
+      <button type="button" class="btn btn-outline-primary btn-sm">
+        For more details about our privacy practices, please consult our <i>Privacy Policy</i>
+      </button>
+    </a>
+  </div>
+  <hr/>
+  <div class="d-flex justify-content-between mx-auto">
+    <p style="text-align: justify">By clicking <strong class="text-success">"Accept"</strong>, you consent to the
+      storing of the previously mentioned settings and data to your device's local storage in order to use our
+      website app:
+    </p>
+    <button class="btn btn-outline-success mb-2 small" (click)="acceptPrivacy()">Accept</button>
+  </div>
+</div>

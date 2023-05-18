@@ -1,0 +1,206 @@
+<!--The clearfix class that helped the text to wrap the accordion
+https://getbootstrap.com/docs/5.3/layout/columns/#standalone-column-classes -->
+
+<!--We have use modal component to show different images and we successful avoid code repeating using:
+x2 methods in welcome.component.ts (click) angular event binding will call the deserved onClick method that will set
+the booleans and the *ngIf will check if needed boolean is true (the one for the app icon or the one for the fav icon).
+    The easiest way wast to duplicate the code, but we tried to avoid this, achieving the same result we things we
+know for now.-->
+
+<div class="clearfix mx-auto">
+
+  <!--Accordion bootstrap-->
+  <div class="accordion col-md-5 float-md-end mt-1 mx-3">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+          The brand
+          <i class="bi bi-briefcase ms-2 mt-auto"></i>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body text-center">
+          <img class="img-fluid" src="assets/img/Logo/Care&Grow_HandLogo.png" style="width: 26rem">
+        </div>
+      </div>
+    </div>
+
+    <!--Header-->
+    <div class="accordion-item">
+      <h2 class="accordion-header ">
+        <button class="accordion-button collapsed tex" type="butto" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+          About the App
+          <img src="assets/img/Logo/Care&Grow_TreeLogo.png" class="img-fluid ms-2" style="width: 2rem;">
+        </button>
+      </h2>
+
+      <!--Body-->
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <img class="rounded-circle img-fluid me-2" src="assets/img/Logo/CareAndGrow_TLogo.png"
+               style="width: 3rem">
+          <strong class="text-center mx-auto">This app is designed to help in plant caring and selling</strong>
+          <ul class="mt-3">
+            <li>
+              There are 3 main components to work with:
+              <ol>
+                <li>
+                  Plant
+                </li>
+                <li>
+                  Plant care
+                </li>
+                <li>
+                  Transactions
+                </li>
+              </ol>
+            </li>
+            <li>
+              Apart from these, you will find other components that are improving the main view of the app, like
+              navigation-bar, app-footer and others.
+            </li>
+            <li>
+              For each component plant, plantCare and transactions you could make the CRUD operations, some sorting and
+              API based search and add (for plants).
+            </li>
+
+            <p class="mt-3 small" style="text-indent: 7px">
+             🟣 This way, we would like to express our sincere thanks to <a href="https://perenual.com/" class="perenual"><em><b>perenual.com</b></em></a> for providing us with free access to their plants API. Without their support, this application would have been much less interesting. We are truly grateful for their contribution.
+            </p>
+
+          </ul>
+          <hr>
+          <strong class="ms-3">In the end</strong>, I might say that the app will help the user overall control
+          of his plants friends, by managing their needs better.
+          <div class="ms-auto mt-1 text-end" style="font-size: small; text-align: right; width: max-content">
+            Made with love for plants: just <i class="text-success">care and grow</i> 💚.
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          About us
+          <span class="mb-2" style="font-size: 2rem"> 🪪 </span>
+        </button>
+      </h2>
+
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body text-center">
+          <div class="card">
+            <img src="assets/img/CV_Poza.jpg"
+                 class="img-fluid rounded-3 mt-3 mx-auto"
+                 alt="CV"
+                 style="width: 17rem"
+                 placement="bottom-start" ngbTooltip="Marcu Tămaș">
+            <div class="card-body">
+              <h5 class="card-title"><i>#Tech geek </i> <span class="bi bi-cup-hot"></span></h5>
+              <hr>
+              <div class="card-text" style="text-align: justify">
+                <p>⚖️<span class="law">"Developed"</span> by Law 💜. </p>
+
+                <p>✅<b>Currently</b>, I am a <span class="law">student</span> at <span class="text-primary">UBB,
+                  Postgraduate Training Program in Computer Science</span> and looking for a place to
+                  <i>develop and release</i> new skills.</p>
+
+                <p>❖ In short, I have done a lot of studies in my life 🤓, and for now, I might say I won't stop, because
+                  as we develop as grown-ups, we are more conscious about how little we know about everything
+                  surrounding us 📖.</p>
+              </div>
+              <div class="card-footer">
+                <a class="me-2" href="https://github.com/MarcuTamas" alt="GitHub">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/tamasmarcu" alt="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <br>
+                <button class="btn" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Still loading because I'm learning...
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Welcom page text-->
+  <div class="mx-3 mt-2">
+    <h3 class="p-2 text-center"><i class="p-2 border-2 border-bottom">Welcome plant lover</i></h3>
+
+    <br>
+    <p style="text-indent: 12px">
+      <strong>The journey starts here.</strong> Like you, so am I. In most cases, just two words describe us the best:
+      <em><strong class="text-success">plant lovers</strong></em>💚. That's why I know how much joy growing them can
+      bring to you.<strong class="text-secondary"> On the other hand</strong>, right next to raising animals, growing
+      plants is one of
+      the purest and most powerful feeling to see how they grow and green your life.
+    </p>
+
+    <p class="text-success" style="text-indent: 37px"><em>How can you be closer to nature in your cozy place if not
+      through your plants and
+      pets?</em>
+    </p>
+
+    <p style="text-indent: 12px">
+      <strong class="text-secondary">However</strong>, our everyday activities can be overwhelming, and
+      <span class="text-danger"> we may sometimes forget</span> about our plants' needs💦. To ensure that they receive
+      the required care, we have created the
+      <span (click)="onClickAppIcon()" role="button" data-bs-toggle="modal" data-bs-target="#modal_Icon">
+        <em class="text-success"><em>Care and Grow</em></em>
+      </span>
+      Web App entirely dedicated to their well-being. From now on,
+      <i class="text-primary">you will never forget when you last took care of them</i>, and you will also be
+      <i class="text-primary">notified</i> when your attention is needed.
+    </p>
+
+    <p style="text-indent: 12px">
+      <strong>Finally</strong>, we hope our idea sounds fun to you and you will be curious to find out more by reading
+      the
+      <i>About the App</i> section. <i>In the end, all was developed by a plant lover for another plant lover, just </i>
+      <span (click)="onClickFavIcon()" role="button" data-bs-toggle="modal" data-bs-target="#modal_Icon">
+        <strong class="text-success"><em><u>Care and Grow</u></em></strong>
+      </span>
+      .
+    </p>
+
+    <!--Modal for favicon.-->
+    <div class="modal fade" id="modal_Icon" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered mx-auto" style="width: max-content">
+        <div class="modal-content text-center">
+          <button type="button" class="btn-close position-relative start-50 translate-middle-x mx-auto"
+                  data-bs-dismiss="modal" aria-label="Close">
+          </button>
+          <h4><i>Easter egg</i></h4>
+          <hr>
+          <div *ngIf="favIconClicked == true" class="modal-body">
+            <div class="mb-3">
+              <img src="assets/img/Logo/Care&Grow_TreeLogo.png" class="img-fluid" style="width: 12rem"
+                   alt="Logo FavIco">
+            </div>
+          </div>
+          <div *ngIf="appIconClicked == true" class="modal-body">
+            <div class="mb-3">
+              <img src="assets/img/Logo/CareAndGrow_TLogo.png" class="img-fluid" style="width: 12rem" alt="Logo FavIco">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

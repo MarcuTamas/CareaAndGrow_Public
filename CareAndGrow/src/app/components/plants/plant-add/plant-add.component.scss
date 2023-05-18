@@ -1,0 +1,30 @@
+.title{
+  background-color: rgba(192, 192, 211, 0.7);
+  background-image: linear-gradient(0deg, rgba(192, 192, 211, 0.5) 3%, rgba(181, 178, 203, 0.5) 12%, rgba(188, 174, 207, 0.5) 33%);
+}
+
+.dropdown-menu{
+  background-color: rgba(192, 192, 211, 0.7);
+  background-image: linear-gradient(0deg, rgba(192, 192, 211, 0.5) 3%, rgba(181, 178, 203, 0.5) 12%, rgba(188, 174, 207, 0.5) 33%);
+  --bs-dropdown-link-hover-bg: rgba(237, 237, 237, 0.7);    //When hover on an element.
+  --bs-dropdown-link-active-bg: rgba(81, 73, 107, 0.3);     //When press an element.
+}
+
+.form-control{
+  background-color: rgb(207, 207, 226);
+}
+
+.dropdown-toggle[aria-expanded="true"]:after{
+  rotate: 180deg;
+}
+
+.modal-content{
+  background-color: rgba(192, 192, 211, 0.7);
+  background-image: linear-gradient(0deg, rgba(192, 192, 211, 0.5) 3%, rgba(181, 178, 203, 0.5) 12%, rgba(188, 174, 207, 0.5) 33%);
+  --bs-modal-header-border-color: #c0c0d3;
+  --bs-modal-footer-border-color: fade-in();
+}
+
+.perenual{
+  color: #57337d;
+}

@@ -1,0 +1,194 @@
+<div class="container-fluid title">
+  <h3 class="d-flex justify-content-center">
+    <i>Adding new plant</i>
+  </h3>
+</div>
+
+<main *ngIf="plant" class="container-fluid">
+  <div class="d-flex justify-content-between">
+    <h4 class="col-4"><i>Enter plant details: </i></h4>
+    <button type="submit"
+            class="btn btn-outline-primary mb-auto"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            ngbTooltip="Search for plant in https://perenual.com/">
+      <i>Search to add </i><span class="bi bi-search-heart"></span>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="plant-id">Plant id: </label>
+      <input class="form-control" type="number" min="1" id="plant-id" [(ngModel)]="plant.id" placeholder="Plant id"
+             aria-label="Plant id">
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="plant-commonName">Plant common name: </label>
+      <input id="plant-commonName" type="text" class="form-control" [(ngModel)]="plant.common_name"
+             placeholder="Common name" aria-label="Common name">
+    </div>
+    <div class="col">
+      <label for="plant-botanicalName">Plant botanical name: </label>
+      <input id="plant-botanicalName" type="text" class="form-control" [(ngModel)]="plant.scientific_name"
+             placeholder="Botanical name" aria-label="Botanical name">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="plant-watering">Watering: </label>
+      <input id="plant-watering" type="text" class="form-control" [(ngModel)]="plant.watering" placeholder="Watering amount"
+             aria-label="Plant watering">
+    </div>
+
+    <div class="col">
+      <label for="plant-sunlight">Sunlight: </label>
+      <input id="plant-sunlight" class="form-control" type="text" [(ngModel)]="plant.sunlight" placeholder="Sunlight amount"
+             aria-label="Sunlight">
+    </div>
+
+    <div class="col">
+      <label for="plant-propagation">Propagation: </label>
+      <input id="plant-propagation" class="form-control" type="text" [(ngModel)]="plant.propagation"
+             placeholder="Propagation method" aria-label="propagation">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="plant-flowers">Flowering: </label>
+      <select id="plant-flowers" class="form-control" [(ngModel)]="plant.flowers" aria-label="flowering">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="col">
+      <label for="plant-care_level">Care level: </label>
+      <input id="plant-care_level" class="form-control" type="text" [(ngModel)]="plant.care_level" placeholder="The care level"
+             aria-label="care_level">
+    </div>
+
+    <div class="col">
+      <label for="plant-growth_rate">Growth rate: </label>
+      <input id="plant-growth_rate" class="form-control" type="text" [(ngModel)]="plant.growth_rate"
+             placeholder="Growth rate" aria-label="growth_rate">
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="plant-family">Plant family: </label>
+        <input id="plant-family" type="text" class="form-control" [(ngModel)]="plant.family" placeholder="Plant family"
+               aria-label="Plant family">
+      </div>
+
+      <div class="col">
+        <label for="plant-inFamilySince">Plant born or adoption date: </label>
+        <input id="plant-inFamilySince" class="form-control" type="date" [(ngModel)]="plant.inFamilySince">
+      </div>
+
+      <div class="col">
+        <label for="plant-amount">Plant amount: </label>
+        <input id="plant-amount"
+               class="form-control"
+               type="number"
+               min="1"
+               [(ngModel)]="plant.amount"
+               placeholder="Amount"
+               aria-label="Amount">
+      </div>
+
+      <div class="d-flex justify-content-end mt-2">
+        <!--Checking if all needed fields ar given by the user.
+        The trim method will check if hte string is empty.-->
+        <button
+          [disabled]="plant.id <= 0 ||
+                      plant.common_name == undefined ||
+                      plant.common_name.trim() === '' ||
+                      plant.amount <= 0"
+          class="btn btn-outline-success me-2"
+          type="button"
+          (click)="onAdd();"
+          routerLink="/plants">
+          Add
+
+        </button>
+        <button class="btn btn-outline-secondary" type="button" (click)="onBack()">
+          Back
+        </button>
+      </div>
+
+    </div>
+</main>
+
+<!--Modal body for API search-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <i>Enter the query word: </i>
+        </h1>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="resetQueryAndMessage()">
+        </button>
+
+      </div>
+      <div class="container-fluid mt-2 small" style="text-align: justify">
+        🟣 This way, we would like to express our sincere thanks to <a href="https://perenual.com/" class="perenual"><em><b>perenual.com</b></em></a> for providing us with free access to their plants API. Without their support, this application would have been much less interesting. We are truly grateful for their contribution.
+      </div>
+      <div class="modal-body input-group">
+
+        <input class="form-control" id="query-word" [(ngModel)]="queryWord" placeholder="The query word">
+        <button [disabled]="queryWord.length == 0"
+                class="btn btn-outline-success"
+                type="submit"
+                (click)="onSearchAdd(); resetQueryAndMessage()">
+          Search to add
+        </button>
+      </div>
+      <div class="text-center text-danger" style="font-size: small"> {{notFoundMessage}} </div>
+      <div class="modal-footer">
+
+        <!--The button will be disable when query word is empty in order to avoid API request.-->
+        <div ngbDropdown class="d-inline-flex justify-content-between col">
+          <button *ngIf="foundedPlantsFromAPI.length > 0" type="button" class="btn btn-outline-primary btn-sm"
+                  id="fondedPlants" ngbDropdownToggle>
+            Select a plant:
+          </button>
+          <div ngbDropdownMenu aria-labelledby="foundedPlants">
+            <button [ngbTooltip]="plantsPreviewTemplate" *ngFor="let plant of foundedPlantsFromAPI" ngbDropdownItem
+                    (click)="onSelect(plant)" data-bs-dismiss="modal">{{plant.common_name}}
+              <ng-template #plantsPreviewTemplate>
+                {{plant.common_name}}
+                <br>
+                <em>{{plant.scientific_name}}</em>
+                <hr>
+                <img class="img-fluid" [src]="plant.default_image.small_url" alt="{{plant.name}}">
+              </ng-template>
+
+            </button>
+          </div>
+
+          <button *ngIf="foundedPlantsFromAPI.length > 0" class="btn btn-outline-dark btn-sm" type="button"
+                  (click)="resetFoundedPlantsFromAPI()" data-bs-dismiss="modal">
+            EMPTY THE LIST
+          </button>
+
+
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal"
+                  (click)="resetQueryAndMessage()">
+            Close
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

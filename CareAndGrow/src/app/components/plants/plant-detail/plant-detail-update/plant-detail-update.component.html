@@ -1,0 +1,111 @@
+<div *ngIf="plant">
+
+  <div class="container-fluid title">
+    <h3 class="d-flex justify-content-center">
+      <i><h2>{{plant.common_name}} details: </h2> </i>
+    </h3>
+  </div>
+
+  <main class="container-fluid">
+
+    <div class="row">
+      <div class="col">
+        <div>Plant id: </div>
+        <div class="border form-control plantID">{{plant.id}}</div>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="plant-commonName">Plant common name: </label>
+        <input id="plant-commonName" type="text" class="form-control" [(ngModel)]="plant.common_name"
+               placeholder="Common name" aria-label="Common name">
+      </div>
+      <div class="col">
+        <label for="plant-botanicalName">Plant botanical name: </label>
+        <input id="plant-botanicalName" type="text" class="form-control" [(ngModel)]="plant.scientific_name"
+               placeholder="Botanical name" aria-label="Botanical name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="plant-watering">Watering: </label>
+        <input id="plant-watering" type="text" class="form-control" [(ngModel)]="plant.watering" placeholder="Watering amount"
+               aria-label="Plant watering">
+      </div>
+
+      <div class="col">
+        <label for="plant-sunlight">Sunlight: </label>
+        <input id="plant-sunlight" class="form-control" type="text" [(ngModel)]="plant.sunlight" placeholder="Sunlight amount"
+               aria-label="Sunlight">
+      </div>
+      <div class="col">
+        <label for="plant-propagation">Propagation: </label>
+        <input id="plant-propagation" class="form-control" type="text" [(ngModel)]="plant.propagation"
+               placeholder="Propagation method" aria-label="propagation">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="plant-flowers">Flowering: </label>
+        <select id="plant-flowers" class="form-control" [(ngModel)]="plant.flowers" aria-label="flowering">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="plant-care_level">Care level: </label>
+        <input id="plant-care_level" class="form-control" type="text" [(ngModel)]="plant.care_level" placeholder="The care level"
+               aria-label="care_level">
+      </div>
+      <div class="col">
+        <label for="plant-growth_rate">Growth rate: </label>
+        <input id="plant-growth_rate" class="form-control" type="text" [(ngModel)]="plant.growth_rate"
+               placeholder="Growth rate" aria-label="growth_rate">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="plant-family">Plant family: </label>
+        <input id="plant-family" type="text" class="form-control" [(ngModel)]="plant.family" placeholder="Plant family"
+               aria-label="Plant family">
+      </div>
+      <div class="col">
+        <label for="plant-inFamilySince">Plant born or adoption date: </label>
+        <input id="plant-inFamilySince" class="form-control" type="date" [(ngModel)]="plant.inFamilySince">
+      </div>
+      <div class="col">
+        <label for="plant-amount">Plant amount: </label>
+        <input id="plant-amount"
+               class="form-control"
+               type="number"
+               min="1"
+               [(ngModel)]="plant.amount"
+               placeholder="Amount"
+               aria-label="Amount">
+      </div>
+
+      <!--Trim method will help to check if the string is empty, because it have only white spaces.-->
+      <div class="d-flex justify-content-end mt-2">
+        <button
+          [disabled]="plant.common_name === undefined ||
+                      plant.common_name.trim() === '' ||
+                      plant.amount <= 0"
+          class="btn btn-outline-success me-2"
+          type="button"
+          (click)="onUpdate()">
+          Update
+        </button>
+        <button class="btn btn-outline-secondary" type="button" (click)="onBack()">
+          Back
+        </button>
+      </div>
+
+    </div>
+  </main>
+</div>
+

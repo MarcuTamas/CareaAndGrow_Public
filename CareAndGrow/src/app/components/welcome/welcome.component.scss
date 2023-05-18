@@ -1,0 +1,53 @@
+//Accordion component customisation (x2 steps).
+      //For the button shadow it was harder to modify the colors, because the syntax is harder. We had to set the radius
+//(raza sau dimensiunile umbrei, reminder rem reprezintă unitate de măsură) and after we can set the color.
+
+// 1. Set the accordion variables to those custom colors.
+$accordion-button-active-bg: rgba(77, 80, 105, 0.3);
+$accordion-button-focus-box-shadow: 0 0 0 0.25rem rgba(86, 68, 109, 0.4);
+
+
+  // 3. We must to import Bootstrap's styles modules.
+      //We can choose between importing everything, only what we need.
+      //I have imported everything because for now is easier.
+      //The import is only after defining the variables.
+
+//https://getbootstrap.com/docs/5.3/customize/sass/#file-structure
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+//Coloring the still loading button.
+.btn{
+  background-color: #8EC5FC;
+  background-image: linear-gradient(71deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.bi-github{
+  color: black;
+}
+
+p{
+  text-align: justify;
+}
+
+.dropdown-menu{
+  background-color: rgba(65, 88, 208, 0.7);
+  background-image: linear-gradient(37deg, rgba(65, 88, 208, 0.7) 0%, rgba(200, 80, 192, 0.7) 46%, rgba(255, 204, 112, 0.96) 100%);
+}
+
+//The welcome title border.
+.border-bottom{
+  --bs-border-color: rgba(87, 71, 107, 0.7);
+}
+
+.modal-content{
+  background-image: linear-gradient(37deg, rgba(65, 88, 208, 0.7) 0%, rgba(200, 80, 192, 0.7) 46%, rgba(255, 204, 112, 0.96) 100%);
+}
+
+.law{
+ color: purple;
+}
+
+.perenual{
+  color: #57337d;
+}

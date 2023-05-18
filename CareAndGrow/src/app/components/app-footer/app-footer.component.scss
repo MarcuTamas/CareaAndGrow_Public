@@ -1,0 +1,23 @@
+//The part of the footer with logo.
+.card-header{
+  background-color: #56446d;
+  background-image: linear-gradient(43deg, #56446d 0%, #465a67 13%, #25845b 26%, #449f69 33%, #ce93d8 78%, #603771 100%);
+}
+
+//The part of the footer with my name.
+.card-body{
+  background-color: #465A67;
+}
+
+.card-text{
+  color: rgba(237, 237, 237);
+}
+
+//Bootstrap icons color
+i{
+  color: rgba(237, 237, 237);
+}
+
+.message{
+ background-color: rgba(192, 192, 211, 0.33);
+}

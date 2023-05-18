@@ -1,0 +1,7 @@
+<!--The relative route path is set in the navbar when the user press on the deserved button.-->
+<div *ngFor="let plant of plants" class="input-group mb-2">
+  <a routerLink="{{relativeRoutePath}}/{{plant.id}}">
+    <button class="p-2 border rounded-start-2">{{plant.id}}</button>
+    <button class="p-2 border rounded-end-2">{{plant.common_name}}</button>
+  </a >
+</div>

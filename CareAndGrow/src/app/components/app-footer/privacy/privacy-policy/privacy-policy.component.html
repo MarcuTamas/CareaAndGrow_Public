@@ -1,0 +1,301 @@
+<div class="card container-fluid">
+  <h3 class="card card-title mt-2">
+    <span class="text-center mt-3 mx-auto">Privacy Policy</span>
+    <span class="text-end me-3 mb-1"
+          style="font-size: small">Last Updated: {{currentDate | date: "dd.MMM.yyyy"}} </span>
+  </h3>
+
+  <div class="card card-body">
+
+    <ol class="card-text">
+      <li>
+        <h4>Introduction:</h4>
+        <p><u>1.1. Welcome to the privacy policy of the <span class="text-success">Grow & Care</span>
+          website application.</u>
+        </p>
+        <p class="mt-1">This privacy policy explains how we collect, use, and protect your personal information when you
+          use our
+          website application.</p>
+        <p>By using <span class="text-success">Grow & Care</span>, <strong>you are giving your consent</strong> to the
+          collection and use of your
+          information as described in this policy.</p>
+
+        <p class="mt-3"><u>1.2. The meaning of some terms:</u></p>
+        <p class="mt-1">In the following section, we will provide the indicated meanings for the specified terms that
+          will be used
+          throughout this privacy policy:
+        </p>
+        <ol class="mt-1" type="a">
+          <li class="mb-1"><b>"WebApp":</b> the Grow & Care website/application developed by us, the developer.</li>
+          <li class="mb-1"><b>"We" or "us":</b> the developer of Grow & Care.</li>
+          <li class="mb-1"><b>"You" or "user":</b> any potential visitor of the Grow & Care WebApp.</li>
+          <li class="mb-1"><b>"Local storage":</b> represents a feature in your web browser that allows data to be
+            stored locally on
+            your device. <br/>
+            It enables the WebApp to store and retrieve data, such as user preferences or customized
+            settings, directly on your device.
+          </li>
+          <li class="mb-1"><b>"Mock object":</b> refers to simulated or placeholder sample data used for testing or
+            demonstration purposes
+            within the WebApp. <br/>
+            Mock objects help simulate real data and functionalities without using actual
+            user-entered information.
+          </li>
+          <li class="mb-1"><b>"User-entered object":</b> refers to the data or information provided by you through the
+            Grow & Care
+            WebApp. <br/>
+            This can include any input, preferences, or details you provide while using the WebApp.
+          </li>
+          <li class="mb-1"><b>"Mock .ts file":</b> is a file containing mock data in TypeScript format. <br/>
+            It is used by developers for
+            testing or development purposes within the WebApp. Mock .ts files help simulate different scenarios and data
+            responses to ensure the proper functioning of the WebApp.
+          </li>
+          <li class="mb-1"><b>"Plant API":</b> refers to the "https://perenual.com/" website service we utilize to
+            retrieve
+            plant-related data and information. <br/>
+            The Plant API allows us to access a database of plant-related
+            information, which we can provide to users through the Grow & Care WebApp.
+          </li>
+        </ol>
+      </li>
+
+      <li class="mt-3">
+
+        <h4>Information saved by our WebApp into user local storage:</h4>
+
+        <div class="container">
+          <div class="row">
+            <div class="col border mx-3">
+
+              <br/>
+              <p class="text-center">
+                <i>1. Plant object data from:</i>
+              </p>
+              <hr/>
+
+              <div style="font-size: small; font-weight: bold; text-align: justify">
+                <p>
+                  a. "https://perenual.com/" Plant API;
+                </p>
+
+                <ul type="circle" style="font-weight: normal; text-align: justify">
+                  <li class="mt-1">
+                    To provide you with plant information and related services, we retrieve data from the
+                    <strong class="perenual">"https://perenual.com/"</strong> API.
+                  </li>
+
+                  <li class="mt-1">
+                    This data includes plant names, descriptions, images, and other relevant information.
+                  </li>
+                </ul>
+
+                <p class="mt-1" style="font-weight: normal">
+                  <span style="font-size: xx-small"> 🟣 </span> We <b>do not collect</b> any personal information from
+                  this API.
+                </p>
+
+                <hr/>
+
+                <p>
+                  b. "mock-plants.ts" file;
+                </p>
+
+                <hr/>
+
+                <p>
+                  c. User provided plants object.
+                </p>
+
+                <br/>
+
+              </div>
+
+            </div>
+
+            <div class="col border mx-3">
+
+              <br/>
+              <p class="text-center">
+                <i>2. Plants care objects data from:</i>
+              </p>
+              <hr/>
+
+              <div style="font-size: small; font-weight: bold">
+                <p>
+                  a. "mock-plantCare.ts" file;
+                </p>
+
+                <hr/>
+
+                <p>
+                  b. User provided plantCare object data.
+                </p>
+                <br/>
+              </div>
+
+            </div>
+
+            <div class="col border mx-3">
+
+              <br/>
+              <p class="text-center">
+                <i>3. Transactions objects data from:</i>
+              </p>
+              <hr/>
+
+              <ol type="a" style="font-size: small">
+                <li style="font-weight: bold">
+                  "mock-transactions.ts" file;
+                </li>
+
+                <hr/>
+
+                <li style="font-weight: bold">
+                  User provided transactions object data.
+                </li>
+                <br/>
+              </ol>
+
+            </div>
+
+            <div class="col border mx-3">
+
+              <br/>
+              <p class="text-center">
+                <i> 4. User Preferences:</i>
+              </p>
+              <hr/>
+
+              <ul type="circle" style="font-size: small; font-weight: bold; text-align: center">
+                The privacy consent.
+                <li class="mt-1" style="font-weight: normal; text-align: justify">
+                  In order to avoid asking for consent each time, <b>we will save your consent in the local storage
+                  after the first use of the WebApp</b>.
+                  This allows us to provide a more streamlined user experience.
+                </li>
+
+                <li class="mt-1" style="font-weight: normal; text-align: justify">
+                  <span class="text-primary-emphasis">Please</span> note that <i>if you clear your local storage, your
+                  consent will be lost</i>, and we will ask
+                  for your consent again upon revisiting the website.
+                </li>
+
+                <li class="mt-1" style="font-weight: normal; text-align: justify">
+                  In order to <strong>revoke your consent</strong>, you can clear the local storage data.
+                  Instructions for clearing the local storage data are provided in our
+                  <p
+                    class="text-primary-emphasis"
+                    style="text-decoration: none">
+                    Privacy Policy section <u>5.3 Clear the local storage and/or retract the consent</u>.
+                  </p>
+                </li>
+              </ul>
+
+
+              <br/>
+
+            </div>
+
+          </div>
+        </div>
+      </li>
+
+      <li class="mt-3" style="text-align: justify">
+        <h4>Use of Information</h4>
+
+        <p><u>3.1 Plant Data</u></p>
+        <ul class="mt-1" type="circle">
+          <li>The plant data obtained from the "https://perenual.com/" API is used solely for the purpose of providing
+            plant-related information to our users.
+          </li>
+          <li>This data is exclusively used for this purpose, and we do not sell or share this data with third parties.
+          </li>
+        </ul>
+
+        <p class="mt-3"><u>3.2 User-Provided Information</u></p>
+        <p class="mt-1"><strong>We may use the information you provide to:</strong></p>
+        <ul>
+          <li>Personalize your experience on our WebApp based on your preferences, like:
+            <ul type="disc">
+              <li>Saving user <strong>consent</strong> into the local storage;</li>
+              <li>Saving user-provided plant, plantCare or transactions data to the local storage.</li>
+            </ul>
+          </li>
+          <li class="mt-2">Respond to your inquiries, requests, or customer support needs, if you choose to contact
+            us.
+          </li>
+        </ul>
+      </li>
+
+      <li class="mt-3" style="text-align: justify">
+        <h4>Data Storage and Security</h4>
+
+        <p class="mt-1"><u>4.1 Local Storage</u></p>
+        <p class="mt-1"><strong>We utilize <em>local storage</em> to store the following:</strong></p>
+        <ol type="a">
+          <li><strong>Mock objects:</strong> Simulated or placeholder data used for testing or demonstration purposes
+            within the WebApp.
+          </li>
+          <li><strong>User-added objects on your device:</strong> Data or information provided by the user and saved
+            locally on their device.
+          </li>
+          <li><strong>The user privacy-policy consent:</strong> User's consent to the privacy policy, which is stored
+            locally.
+          </li>
+        </ol>
+
+        <p class="mt-1">⁕ This allows us to provide a seamless user experience by preserving customized settings and
+          data on the user's device.</p>
+        <p><strong>⁕ Please note that the data stored in local storage is limited to the user's device and is not
+          accessible to us or any third parties.</strong></p>
+
+        <p class="mt-3"><u>4.2 Data Security</u></p>
+        <p class="mt-1">⁕ Due to the fact that <strong>we do not collect or store any data</strong> and all information
+          is saved in
+          the user's local storage, <strong>we do not assume</strong> any responsibilities for the security of the the
+          data stored in the user's local storage. However, we take reasonable measures to ensure the security of data
+          transmitted to local storage by implementing appropriate technical and organizational security measures.</p>
+        <p>⁕ It is important to note that while we strive to protect your as well as our own information, no data
+          transmission or storage can be guaranteed to be 100% secure.</p>
+        <p><b>⁕ Therefore, <b>we strongly encourage you</b> to take precautions to protect your personal information and
+          maintain secure browsing practices when using our WebApp.</b></p>
+
+      <li class="mt-3" style="text-align: justify">
+        <h4>Other information</h4>
+
+        <p><u>5.1 Third-Party Links</u></p>
+
+        <p>⁕ Our WebApp may contain links to third-party websites or services that are not owned or controlled by
+          us.
+        </p>
+        <p><b>Please note that this privacy policy does not apply to those third-party websites or services.</b></p>
+        <p class="mt-1">⁕ <span class="text-primary-emphasis">We recommend</span> reviewing the privacy policies of
+          those third parties before providing any personal
+          information.
+        </p>
+
+        <p class="mt-3"><u>5.2 Changes to this Privacy Policy</u></p>
+        <p><b>We may update this privacy policy from time to time.</b></p>
+        <p>Any changes will be reflected on this page, and the revised policy will take effect immediately upon
+          posting.
+        </p>
+        <p><span class="text-primary-emphasis">We encourage you</span> to periodically review this page for the latest
+          information on our privacy practices.
+        </p>
+
+        <p class="mt-3 text-primary-emphasis" id="clearConsent" style="font-weight: bold"><u>5.3 Clear the local storage
+          and/or retract the consent</u></p>
+        <p style="font-weight: bold">To retract your consent and clear the local storage, please access the Privacy
+          Policy item from the navigation bar and click on the <span class="text-success">"Delete Local Storage and Retract Consent" button</span> or
+          click <u class="text-primary-emphasis" type="button" (click)="clearLocalStorage()">here</u>.
+        </p>
+
+        <p class="mt-3"><u><strong>5.4 Contact us</strong></u></p>
+        <p>If you have any questions, concerns, or requests regarding this privacy policy or our data practices, please
+          contact us at: <u class="text-primary-emphasis">tamas.marcu96@gmail.com</u></p>
+
+      </li>
+    </ol>
+  </div>
+</div>

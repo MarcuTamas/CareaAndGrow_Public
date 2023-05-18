@@ -1,0 +1,85 @@
+<!--To make the accordion working for each plant individually we had to install angular powered bootstrap.
+Because of this we had to update the angular core too in order to work with it.
+After we used the ngb accordion and now we can open each plant details separately.
+The problem was that the bootstrap accordion had always the same id and we could not use binding to change the id
+for each plant. Now each plant has it's accordion id and can be open and close individually thanks to ngb Accordion type.
+https://ng-bootstrap.github.io/#/home-->
+
+<!--What is strange is that i must use the ng template to show any content.-->
+
+<!--Used borders from https://getbootstrap.com/docs/5.3/utilities/borders/#border-->
+
+<!--Used tooltip https://ng-bootstrap.github.io/#/components/tooltip/examples-->
+
+<!--Used for date pipe https://angular.io/api/common/DatePipe#datepipe-->
+
+<!--H3 bootstrap details:
+  d-flex justify-content-between make the img and add button stay separated on smaller screen
+  mx-auto makes the img to stay in center, and move left on smaller screen.-->
+
+<main class="container-fluid">
+  <h3 class="d-flex justify-content-between">
+    <img ngSrc="assets/img/List/PlantList.png" width="199" height="37" alt="My plant list" class="mx-auto">
+    <a routerLink="/plants/add">
+      <button
+        class="btn btn-outline-primary bi-patch-plus">
+        Add plant
+      </button>
+    </a>
+  </h3>
+
+  <div *ngFor="let plant of plants">
+    <div ngbAccordion (shown)="onSelect(plant)">
+      <div ngbAccordionItem="{{plant.id}}">
+
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+              <span class="p-2 border rounded-start-2">{{plant.id}}</span>
+              <span class="p-2 border rounded-end-2">{{plant.common_name}}</span>
+          </button>
+        </h2>
+
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <!--Checking if has a family name or not in order to display it.-->
+              <p *ngIf="plant.family"><strong>Family: </strong> <em>{{ plant.family }}</em></p>
+
+              <p><strong>Botanical name: </strong> <em>{{plant.scientific_name}}</em>
+                <br>
+                <span class="text-primary-emphasis">Amount:</span> {{plant.amount}}
+                <br>
+                <span class="text-success">In the family since:</span>  {{plant.inFamilySince | date: "dd.MM.yyyy"}}
+
+              </p>
+
+              <!--Details, edit and delete buttons.-->
+              <div class="d-flex justify-content-end mx-auto">
+                <a class="mt-2 me-2" routerLink="/plants/detail/{{plant.id}}">
+                  <button type="button" class="btn btn-outline-secondary bi-sun" ngbTooltip="READ">
+                    Details
+                  </button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/plants/detail/update/{{plant.id}}">
+                  <button type="button" class="btn btn-outline-success bi-gear" ngbTooltip="UPDATE">
+                    Edit
+                  </button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/plants/delete/{{plant.id}}">
+                  <button type="button" class="btn btn-outline-danger">
+                    Delete
+                  </button>
+                </a>
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

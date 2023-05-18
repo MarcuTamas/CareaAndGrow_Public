@@ -1,0 +1,329 @@
+<nav class="navbar navbar-expand-lg">
+
+  <!--The logo.-->
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/welcome">
+      <img src="assets/img/Logo/Care&Grow_Logo_navbar.png" width="137" height="23"
+           class="d-inline-block align-text">
+    </a>
+
+    <!--The toggler to apear on small screens.-->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!--The part of the navbar in form of nested lists that will be collapsed in case of needed on smaller screen size.-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!--Dashboard-->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <!--My plants -->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            My plants 💚
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/plants">
+                <button type="button" class="btn btn-light position-relative bi-clipboard2-heart" ngbTooltip="Read ALL">
+                  Plants list
+
+                  <!--The info pill with actual number of items.-->
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                      {{this.plantService.getPlantsNumber()}}
+                    <span class="visually-hidden">objects number</span>
+                  </span>
+
+                </button>
+              </a>
+            </li>
+
+            <hr class="dropdown-divider">
+
+            <li class="dropdown-item" routerLink="plants/add" ngbTooltip="CREATE">
+              <button type="button" class="btn badge bg-primary rounded-pill bi-patch-plus mx-auto">
+                Add plant
+              </button>
+            </li>
+
+            <!--We had to do this for the modal, because we have only one but we simulate many.-->
+            <li (click)="clickedButton('plant')">
+              <button class="dropdown-item"
+                      ngbTooltip="READ"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plants/detail')">
+                <span class="btn badge bg-secondary rounded-pill bi-book-half mx-auto">
+                  Plant details
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="UPDATE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plants/detail/update')">
+                <span type="button" class="btn badge bg-warning rounded-pill bi-gear mx-auto">
+                  Update plant details
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="DELETE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plants/delete')">
+                <span type="button" class="btn badge bg-danger rounded-pill bi-patch-minus mx-auto">
+                  Delete plant
+                </span>
+              </button>
+            </li>
+          </ul>
+        </li>
+
+        <!--Plants care-->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Plants care 😇
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/plantCare">
+                <button type="button" class="btn btn-light position-relative bi-clipboard2-heart" ngbTooltip="Read ALL">
+                  Plant care list
+
+                  <!--The info pill with actual number of items.-->
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                      {{this.plantCareService.getPlantsCareNumber()}}
+                    <span class="visually-hidden">objects number</span>
+                  </span>
+
+                </button>
+              </a>
+            </li>
+
+            <hr class="dropdown-divider">
+
+            <li class="dropdown-item" routerLink="plantCare/add" ngbTooltip="CREATE">
+              <button type="button" class="btn badge bg-primary rounded-pill bi-patch-plus mx-auto">
+                Add plant care
+              </button>
+            </li>
+
+            <li (click)="clickedButton('plantCare')">
+              <button class="dropdown-item"
+                      ngbTooltip="READ"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plantCare/detail')">
+                <span class="btn badge bg-secondary rounded-pill bi-book-half mx-auto">
+                  Plant care details
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="UPDATE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plantCare/detail/update')">
+                <span type="button" class="btn badge bg-warning rounded-pill bi-gear mx-auto">
+                  Update plant care
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="DELETE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('plantCare/delete')">
+                <span type="button" class="btn badge bg-danger rounded-pill bi-patch-minus mx-auto">
+                  Delete plant care
+                </span>
+              </button>
+            </li>
+
+          </ul>
+        </li>
+
+        <!--Transactions-->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Transactions
+            <i class="bi bi-cart-plus"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/transactions">
+              <button type="button" class="btn btn-light position-relative">
+                Transactions list
+
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                    {{this.transactionService.getTransactionsNumber()}}
+                  <span class="visually-hidden">objects number</span>
+                  </span>
+              </button>
+            </a>
+            </li>
+
+            <hr class="dropdown-divider">
+
+            <li class="dropdown-item" routerLink="transactions/add" ngbTooltip="CREATE">
+              <button type="button" class="btn badge bg-primary rounded-pill bi-patch-plus mx-auto">
+                Add transaction
+              </button>
+            </li>
+
+            <li (click)="clickedButton('Transactions')">
+              <button class="dropdown-item"
+                      ngbTooltip="READ"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('transactions/detail')">
+                <span class="btn badge bg-secondary rounded-pill bi-book-half mx-auto">
+                  Transactions details
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="UPDATE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('transactions/detail/update')">
+                <span type="button" class="btn badge bg-warning rounded-pill bi-gear mx-auto">
+                  Update transaction
+                </span>
+              </button>
+
+              <button class="dropdown-item"
+                      ngbTooltip="DELETE"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalForPreview"
+                      (click)="setPath('transactions/delete')">
+                <span type="button" class="btn badge bg-danger rounded-pill bi-patch-minus mx-auto">
+                  Delete transaction
+                </span>
+              </button>
+            </li>
+
+          </ul>
+        </li>
+
+        <!--The log button won't open the modal if there are not messages to show. I used *ngIf to achieve this.-->
+        <li *ngIf="messagesService.messages.length > 0" class="nav-item">
+
+          <button class="nav-link" role="button" data-bs-toggle="modal" data-bs-target="#modalForLog">
+            <i class="bi bi-filetype-txt top">Log</i>
+
+            <!--Total messages synchronized bullet.-->
+            <span
+              class="position-relative ms-2 translate-middle badge rounded-pill">{{messagesService.messages.length}}
+              </span>
+          </button>
+        </li>
+      </ul>
+
+      <!--Privacy policy-->
+      <div class="privacy-policy"
+           data-bs-toggle="modal"
+           data-bs-target="#modalForPreview"
+           (click)="clickedButton('Privacy Policy')">
+
+        <span class="bi bi-shield-shaded">
+          <i class="ms-1"><u>Privacy policy</u></i>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!--Modal for log-->
+<div class="modal fade" id="modalForLog" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width: max-content">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <a class="modal-title" routerLink="/messages">
+          <button class="btn" data-bs-dismiss="modal"><i>You have {{messagesService.messages.length}} log messages:</i>
+          </button>
+        </a>
+        <button type="button" class="btn-close ms-3 mb-auto" data-bs-dismiss="modal" aria-label="Close"
+                style="scale: 77%"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <app-messages-preview style="font-size: x-small"></app-messages-preview>
+        </div>
+      </div>
+
+      <!--In order to close the modal when clear messages we need to add to button data-bs-dismiss="modal", took from close example.-->
+      <div class="modal-footer mx-auto" style="scale: 87%">
+
+        <button type="button" class="clear; btn btn-outline-danger mx-auto"
+                (click)="messagesService.clear()"
+                data-bs-dismiss="modal">Clear messages
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Modal for previews-->
+<div class="modal fade" id="modalForPreview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-xl mx-auto" style="width: max-content" data-bs-placement="center">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <i>Please select: </i>
+        <button type="button" class="btn-close ms-3 mb-auto" data-bs-dismiss="modal" aria-label="Close"
+                style="scale: 77%">
+        </button>
+      </div>
+
+      <div *ngIf="theClickedButton === 'plant'" class="modal-body">
+        <div class="mb-3" data-bs-dismiss="modal">
+          <app-plants-list-preview [relativeRoutePath]="getPath()"></app-plants-list-preview>
+        </div>
+      </div>
+
+      <div *ngIf="theClickedButton === 'plantCare'" class="modal-body">
+        <div class="mb-3" data-bs-dismiss="modal">
+          <app-plants-care-list-preview [relativeRoutePath]="getPath()"></app-plants-care-list-preview>
+        </div>
+      </div>
+
+      <div *ngIf="theClickedButton === 'Transactions'" class="modal-body text-center">
+        <div class="mb-3" data-bs-dismiss="modal">
+          <app-transactions-list-preview [relativeRoutePath]="getPath()"></app-transactions-list-preview>
+        </div>
+      </div>
+
+      <div *ngIf="theClickedButton === 'Privacy Policy'" class="modal-body container-fluid">
+        <div data-bs-dismiss="modal">
+          <a routerLink="privacy-policy" alt="Privacy policy">
+            <i class="btn btn-primary bi bi-journal"> Consult Privacy policy</i>
+          </a>
+          <hr/>
+          <div class="d-flex flex-column flex-sm-row justify-content-between text-center">
+            <button class="btn btn-sm btn-success" (click)="clearLocalStorage()">
+              ✖ Delete local storage and <u>Retract The Consent</u>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

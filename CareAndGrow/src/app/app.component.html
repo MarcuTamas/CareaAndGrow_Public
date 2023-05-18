@@ -1,0 +1,12 @@
+<!--Bootstrap nu ar fi funcționat cum trebuie dacă tot codul din navigation-bar ar fi fost pus aici urmat de roteru outlet și
+app messeges. Din acest motiv am creat o nuoă componentă pentru bara de navigare
+    A fost necesar să adăugăn padding pentru că altfel partea de footer se suprapunea peste corp.-->
+
+<main style="padding-bottom: 100px">
+  <app-navigation-bar></app-navigation-bar>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="fixed-bottom">
+<app-app-footer></app-app-footer>
+</footer>

@@ -1,0 +1,115 @@
+<div *ngIf="plant">
+
+  <div class="container-fluid title">
+    <h3 class="d-flex justify-content-center">
+      <i>About your plant: </i>
+    </h3>
+  </div>
+
+  <div class="card mx-3 mt-3">
+    <div class="row g-0">
+
+      <div class="col-md-3">
+        <img [src]="plant.default_image.medium_url" class="img-fluid rounded-start" [alt]="plant.scientific_name">
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title text-success"><i>{{plant.common_name}}</i></h4>
+          <h5 class="card-title"><i>{{plant.scientific_name}}</i></h5>
+          <div *ngIf="plant.name" style="font-size: small">({{plant.name}})</div>
+
+          <hr>
+
+          <tr>
+            <th scope="row">
+              <i>Plant id: </i>{{plant.id}}
+            </th>
+          </tr>
+
+          <div class="table-responsive-sm rounded-3 text-center">
+            <table class="container-fluid">
+              <tr>
+                <td *ngIf="plant.family" class="col rounded-3">
+                  <i><b>Family: </b></i>
+                  {{plant.family}}
+                </td>
+                <td *ngIf="plant.watering" class="col rounded-2">
+                  <i><b>Watering: </b></i>
+                  💦 {{plant.watering}}
+                </td>
+                <td *ngIf="plant.sunlight" class="col rounded-3">
+                  <i><b>Sunlight: </b></i>
+                  ☀️{{plant.sunlight}}
+                </td>
+              </tr>
+
+              <tr>
+                <td *ngIf="plant.propagation" class="col rounded-2">
+                  <i><b>Propagation: </b></i>
+                  <ul>
+                    <li class="text-start"
+                        *ngFor="let propagationMethod of plant.propagation">{{propagationMethod}}</li>
+                  </ul>
+                </td>
+                <td *ngIf="plant.care_level" class="col rounded-3">
+                  <i><b>Care level: </b></i>
+                  {{plant.care_level}}
+                </td>
+                <td *ngIf="plant.growth_rate" class="col rounded-2">
+                  <i><b>Growth rate: </b></i>
+                  {{plant.growth_rate}}
+                </td>
+              </tr>
+
+              <tr class="small">
+                <td *ngIf="plant.flowers" class="col rounded-3">
+                  <i><b>Flowers: </b></i>
+                  {{plant.flowers}}
+                </td>
+                <td *ngIf="plant.amount" class="col rounded-2">
+                  <i><b>Amount: </b></i>
+                  {{plant.amount}}
+                </td>
+                <td *ngIf="plant.inFamilySince" class="col rounded-3" ngbTooltip="In family since:">
+                  <i class="bi bi-calendar-event">
+                    <b> Date: </b>
+                  </i>
+                  {{plant.inFamilySince | date: "dd.MMM.yyyy"}}
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Edit, delete and back buttons.-->
+  <div class="d-flex justify-content-end mt-3 mx-3">
+
+    <a routerLink="/plants/detail/update/{{plant.id}}">
+      <button
+        class="btn btn-outline-success bi-gear me-2"
+        ngbTooltip="UPDATE"
+        type="button">
+        Edit
+      </button>
+    </a>
+
+    <a routerLink="/plants/delete/{{plant.id}}">
+      <button type="button" class="btn btn-outline-danger me-2">Delete</button>
+    </a>
+
+    <button
+      class="btn btn-outline-secondary bi bi-arrow-return-left"
+      type="button"
+      ngbTooltip="Back"
+      (click)="onBack()">
+    </button>
+  </div>
+
+</div>
+
+

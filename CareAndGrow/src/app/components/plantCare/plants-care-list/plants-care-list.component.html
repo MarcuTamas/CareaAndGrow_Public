@@ -1,0 +1,60 @@
+<main class="container-fluid">
+  <h3 class="d-flex justify-content-between">
+    <i>Plant care list</i>
+    <a routerLink="/plantCare/add">
+      <button
+        class="btn btn-outline-primary bi-patch-plus">
+        Add plant care
+      </button>
+    </a>
+  </h3>
+
+  <div *ngFor="let plantCare of plantsCare">
+    <div ngbAccordion (shown)="onSelect(plantCare)">
+      <div ngbAccordionItem="{{plantCare.id}}">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span class="p-2 border rounded-start-2">{{plantCare.id}}</span>
+            <span class="p-2 border rounded-end-2">Care for plant with id: {{plantCare.plantID}}</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+
+            <ng-template>
+
+              <p><strong>Is watered: </strong> <em>{{plantCare.isWatered}}</em>
+              <p><strong>Is fertilized: </strong> <em>{{plantCare.isFertilized}}</em>
+                <br>
+                <span class="text-primary-emphasis">Has special treatment:</span> {{plantCare.hasSpecialTreatment}}
+                <br>
+                <span  class="text-success">Last care date:</span>  {{plantCare.careDate | date: "dd.MM.yyyy"}}
+              </p>
+
+              <!--Details, edit and delete buttons.-->
+              <div class="d-flex justify-content-end mx-auto">
+                <a class="mt-2 me-2" routerLink="/plantCare/detail/{{plantCare.id}}">
+                  <button type="button" class="btn btn-outline-secondary bi-sun" ngbTooltip="READ">
+                    Details</button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/plantCare/detail/update/{{plantCare.id}}">
+                  <button type="button" class="btn btn-outline-success bi-gear" ngbTooltip="UPDATE">
+                    Edit</button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/plantCare/delete/{{plantCare.id}}">
+                  <button type="button" class="btn btn-outline-danger">
+                    Delete</button>
+                </a>
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

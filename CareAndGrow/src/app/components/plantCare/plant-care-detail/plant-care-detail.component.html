@@ -1,0 +1,86 @@
+<div *ngIf="plantCare">
+
+  <div class="container-fluid title">
+    <h3 class="d-flex justify-content-center">
+      <i class="me-4">About your plant caring: </i>
+    </h3>
+  </div>
+
+  <div class="card mt-3 ms-3 me-3 mx-auto text-center">
+    <div class="row g-0">
+
+      <div class="col-md-8 mx-auto container-fluid">
+        <div class="card-body">
+
+          <div class="col-md-3 mb-3 w-auto">
+            <img [src]="plantDefault_imageThumbnail" class="img-fluid rounded-circle w-auto" [alt]="plantScientific_name">
+          </div>
+
+          <h4 class="card-title text-success"><i>{{plantCommon_name}}</i></h4>
+          <h5 class="card-title"><i>{{plantScientific_name}}</i></h5>
+
+          <hr>
+
+          <tr>
+            <th scope="row">
+              <i>Plant care id: </i>{{plantCare.id}}
+            </th>
+          </tr>
+
+          <div class="table-responsive-sm rounded-3 text-center">
+            <table class="container-fluid">
+              <tr>
+                <td class="col rounded-3">
+                  💦<i><b>Watered: </b></i>
+                  {{plantCare.isWatered}}
+                </td>
+                <td class="col rounded-2">
+                  🌻<i><b>Fertilized: </b></i>
+                   {{plantCare.isFertilized}}
+                </td>
+              </tr>
+
+              <tr>
+                <td class="col rounded-2 me-2">
+                  <i><b>Need special care: </b></i>
+                  {{plantCare.hasSpecialTreatment}}
+                </td>
+                <td class="col rounded-3">
+                  <i class="bi-calendar-event"><b> Last care date: </b></i>
+                  <br>
+                  {{plantCare.careDate | date: "dd.MMM.yyyy"}}
+                </td>
+              </tr>
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--Edit, delete and back buttons.-->
+    <div class="d-flex justify-content-end mt-3 mb-3 mx-3 con">
+
+      <a routerLink="/plantCare/detail/update/{{plantCare.id}}">
+        <button
+          class="btn btn-outline-success bi-gear me-2"
+          ngbTooltip="UPDATE"
+          type="button">
+          Edit
+        </button>
+      </a>
+
+      <a routerLink="/plantCare/delete/{{plantCare.id}}">
+        <button type="button" class="btn btn-outline-danger me-2">Delete</button>
+      </a>
+
+      <button
+        class="btn btn-outline-secondary bi bi-arrow-return-left"
+        type="button"
+        ngbTooltip="Back"
+        (click)="onBack()">
+      </button>
+    </div>
+
+  </div>
+</div>

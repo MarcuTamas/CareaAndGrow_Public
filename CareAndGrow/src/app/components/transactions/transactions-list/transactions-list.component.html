@@ -1,0 +1,65 @@
+<main class="container-fluid">
+  <h3 class="d-flex justify-content-between">
+    <i class="mt-2">Transactions list</i>
+    <a routerLink="/transactions/add">
+      <button
+        class="btn btn-outline-primary bi-patch-plus mt-2">
+        Add transaction
+      </button>
+    </a>
+  </h3>
+
+  <div *ngFor="let transaction of transactions">
+    <div ngbAccordion (shown)="onSelect(transaction)">
+      <div ngbAccordionItem="{{transaction.id}}">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            <span class="p-2 border rounded-start-2">Transaction id: {{transaction.id}}</span>
+            <span class="p-2 border rounded-end-2">Transacted plant id: {{transaction.plantID}}</span>
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+
+            <ng-template>
+              <p>
+                <span class="text-primary">Bought price: </span> <em>{{transaction.plantBoughtPrice}}</em>
+              </p>
+              <p>
+                <span class="text-success">Sold price:</span> {{transaction.plantSoldPrice}}
+              </p>
+              <p>
+                <span>Sold amount:</span> {{transaction.soldAmount}}
+              </p>
+              <p>
+                <span>Stock:</span> {{transaction.stock}}
+              </p>
+              <p>
+                <span>Transaction date:</span>  {{transaction.transactionDate | date: "dd.MM.yyyy"}}
+              </p>
+
+              <!--Details, edit and delete buttons.-->
+              <div class="d-flex justify-content-end mx-auto">
+                <a class="mt-2 me-2" routerLink="/transactions/detail/{{transaction.id}}">
+                  <button type="button" class="btn btn-outline-secondary bi-sun" ngbTooltip="READ">
+                    Details</button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/transactions/detail/update/{{transaction.id}}">
+                  <button type="button" class="btn btn-outline-success bi-gear" ngbTooltip="UPDATE">
+                    Edit</button>
+                </a>
+
+                <a class="mt-2 me-2" routerLink="/transactions/delete/{{transaction.id}}">
+                  <button type="button" class="btn btn-outline-danger">
+                    Delete</button>
+                </a>
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

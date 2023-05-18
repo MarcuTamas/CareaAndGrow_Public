@@ -1,0 +1,97 @@
+<div *ngIf="transaction">
+
+  <div class="container-fluid title">
+    <h3 class="d-flex justify-content-center">
+      <i><h2>Adding new transaction</h2></i>
+    </h3>
+  </div>
+
+  <main class="container-fluid">
+
+    <div class="row">
+      <div class="col">
+        <label for="transaction-id">Transaction id: </label>
+        <input class="form-control" type="number" min="1" id="transaction-id" [(ngModel)]="transaction.id"
+               placeholder="Transaction id"
+               aria-label="Transaction id"
+               ngbTooltip="Enter a positive number">
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="transaction-plantID">Plant id: </label>
+        <select id="transaction-plantID"
+                class="form-control"
+                [(ngModel)]="transaction.plantID"
+                aria-label="Plant id"
+                ngbTooltip="Please select from the list">
+          <option value="" disabled selected>Please select a Plant ID from the list: </option>
+          <option *ngFor="let plantID of plantsID" value="{{plantID}}">{{plantID}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="transaction-stock">Plant stock: </label>
+        <input class="form-control" type="number" min="0" id="transaction-stock" [(ngModel)]="transaction.stock"
+               placeholder="Plant stock: "
+               aria-label="Plant stock"
+               ngbTooltip="Enter a positive number">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="transaction-plantBoughtPrice">Plant bought price: </label>
+        <input class="form-control" type="number" min="0" id="transaction-plantBoughtPrice" [(ngModel)]="transaction.plantBoughtPrice"
+               placeholder="Plant bought price: "
+               aria-label="plantBoughtPrice"
+               ngbTooltip="Enter a positive number">
+      </div>
+      <div class="col">
+        <label for="transaction-plantSoldPrice">Plant sold price: </label>
+        <input class="form-control" type="number" min="0" id="transaction-plantSoldPrice" [(ngModel)]="transaction.plantSoldPrice"
+               placeholder="Plant bought price: "
+               aria-label="plantBoughtPrice"
+               ngbTooltip="Enter a positive number">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="transaction-soldAmount">Plant sold amount: </label>
+        <input class="form-control" type="number" min="0" id="transaction-soldAmount" [(ngModel)]="transaction.soldAmount"
+               placeholder="Plant sold amount: "
+               aria-label="Plant sold amount"
+               ngbTooltip="Enter a positive number">
+      </div>
+      <div class="col">
+        <label for="transaction-transactionDate">Transaction date: </label>
+        <input id="transaction-transactionDate" class="form-control" type="date" [(ngModel)]="transaction.transactionDate">
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-end mt-2">
+      <!--Checking if the fields are entered.-->
+      <button
+        [disabled]=" transaction.id <= 0 ||
+                     transaction.plantID <= 0 ||
+                     transaction.plantBoughtPrice === undefined ||
+                     transaction.plantSoldPrice === undefined ||
+                     transaction.soldAmount === undefined ||
+                     transaction.transactionDate === undefined"
+        class="btn btn-outline-success me-2"
+        type="button"
+        routerLink="/transactions"
+        (click)="onAdd()">
+        Add
+      </button>
+
+      <button class="btn btn-outline-secondary" type="button" (click)="onBack()">
+        Back
+      </button>
+    </div>
+  </main>
+</div>
+

@@ -1,0 +1,23 @@
+/* PlantDetailComponent's private CSS styles */
+.title{
+  background-color: rgba(192, 192, 211, 0.7);
+  background-image: linear-gradient(0deg, rgba(192, 192, 211, 0.5) 3%, rgba(181, 178, 203, 0.5) 12%, rgba(188, 174, 207, 0.5) 33%);
+}
+
+.card{
+  background-color: rgba(192, 192, 211, 0.7);
+  background-image: linear-gradient(0deg, rgba(192, 192, 211, 0.5) 3%, rgba(181, 178, 203, 0.5) 12%, rgba(188, 174, 207, 0.5) 33%);
+  border-color: #57337d;
+}
+
+.rounded-3{
+  background-color: rgba(87, 51, 125, 0.07);
+}
+
+.rounded-2{
+  background: rgba(192, 192, 211, 0.03);
+}
+
+.border, .border-start{
+  --bs-border-color: rgba(87, 51, 125, 0.3);
+}
