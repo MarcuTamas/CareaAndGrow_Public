@@ -25,5 +25,4 @@ Feel free to explore the code and contribute to the project. Just care and grow!
 To get started with the Grow and Care App, please visit the demo website https://marcutamas.github.io/CareAndGrow/welcome
 
 
-## That's it! You're now ready to explore and contribute to the Grow and Care App. 
-Happy caring and growing your plants!
+## That's it! You're now ready to explore and contribute to the Grow and Care App. <br /> Happy caring and growing your plants!
