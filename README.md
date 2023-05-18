@@ -3,7 +3,6 @@ Welcome to the Grow and Care App public repo! This project is an object-oriented
 - Whether you're a beginner or an experienced plant enthusiast, this app is designed to help you keep your plants healthy and thriving. 
 - Please note that for security reasons, some personal parts of the code, such as API keys and logo images, have been removed. 
 
-#
 Feel free to explore the code and contribute to the project. Just care and grow!
 
 ## Built With
