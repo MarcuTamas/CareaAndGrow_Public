@@ -1,5 +1,8 @@
 # Grow and Care App
-Welcome to the Grow and Care App public repo! This project is an object-oriented web application built using the Angular framework with TypeScript. It provides a user-friendly interface for managing your plants, accessing care instructions, and tracking transactions related to your plants. Whether you're a beginner or an experienced plant enthusiast, this app is designed to help you keep your plants healthy and thriving. Please note that for security reasons, some personal parts of the code, such as API keys and logo images, have been removed. Feel free to explore the code and contribute to the project. Just care and grow!
+Welcome to the Grow and Care App public repo! This project is an object-oriented web application built using the Angular framework with TypeScript. It provides a user-friendly interface for managing your plants, accessing care instructions, and tracking transactions related to your plants. 
+- Whether you're a beginner or an experienced plant enthusiast, this app is designed to help you keep your plants healthy and thriving. 
+- Please note that for security reasons, some personal parts of the code, such as API keys and logo images, have been removed. 
+Feel free to explore the code and contribute to the project. Just care and grow!
 
 ## Built With
 - Angular (with TypeScript) - A powerful JavaScript framework for building web applications.
