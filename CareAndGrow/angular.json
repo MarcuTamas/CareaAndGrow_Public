@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CareAndGrow:build:production"
+              "buildTarget": "CareAndGrow:build:production"
             },
             "development": {
-              "browserTarget": "CareAndGrow:build:development"
+              "buildTarget": "CareAndGrow:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CareAndGrow:build"
+            "buildTarget": "CareAndGrow:build"
           }
         },
         "test": {
